@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react_cafeapp/static/css/main.c313511f.css",
+    "main.js": "/react_cafeapp/static/js/main.d34e07fc.js",
+    "static/js/453.72b27749.chunk.js": "/react_cafeapp/static/js/453.72b27749.chunk.js",
+    "index.html": "/react_cafeapp/index.html",
+    "main.c313511f.css.map": "/react_cafeapp/static/css/main.c313511f.css.map",
+    "main.d34e07fc.js.map": "/react_cafeapp/static/js/main.d34e07fc.js.map",
+    "453.72b27749.chunk.js.map": "/react_cafeapp/static/js/453.72b27749.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c313511f.css",
+    "static/js/main.d34e07fc.js"
+  ]
+}
