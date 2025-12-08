@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/react_cafeapp/static/css/main.c313511f.css",
-    "main.js": "/react_cafeapp/static/js/main.d34e07fc.js",
+    "main.css": "/react_cafeapp/static/css/main.f4c4df1c.css",
+    "main.js": "/react_cafeapp/static/js/main.dba7999d.js",
     "static/js/453.72b27749.chunk.js": "/react_cafeapp/static/js/453.72b27749.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/react_cafeapp/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/react_cafeapp/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
     "index.html": "/react_cafeapp/index.html",
-    "main.c313511f.css.map": "/react_cafeapp/static/css/main.c313511f.css.map",
-    "main.d34e07fc.js.map": "/react_cafeapp/static/js/main.d34e07fc.js.map",
+    "main.f4c4df1c.css.map": "/react_cafeapp/static/css/main.f4c4df1c.css.map",
+    "main.dba7999d.js.map": "/react_cafeapp/static/js/main.dba7999d.js.map",
     "453.72b27749.chunk.js.map": "/react_cafeapp/static/js/453.72b27749.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c313511f.css",
-    "static/js/main.d34e07fc.js"
+    "static/css/main.f4c4df1c.css",
+    "static/js/main.dba7999d.js"
   ]
 }
