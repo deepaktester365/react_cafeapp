@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react_cafeapp/static/css/main.f4c4df1c.css",
-    "main.js": "/react_cafeapp/static/js/main.fa68b6cb.js",
-    "static/js/453.72b27749.chunk.js": "/react_cafeapp/static/js/453.72b27749.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/react_cafeapp/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
-    "static/media/bootstrap-icons.woff2?": "/react_cafeapp/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
-    "index.html": "/react_cafeapp/index.html",
-    "main.f4c4df1c.css.map": "/react_cafeapp/static/css/main.f4c4df1c.css.map",
-    "main.fa68b6cb.js.map": "/react_cafeapp/static/js/main.fa68b6cb.js.map",
-    "453.72b27749.chunk.js.map": "/react_cafeapp/static/js/453.72b27749.chunk.js.map"
+    "main.css": "/static/css/main.138e5e96.css",
+    "main.js": "/static/js/main.ef86f28a.js",
+    "static/js/453.72b27749.chunk.js": "/static/js/453.72b27749.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "index.html": "/index.html",
+    "main.138e5e96.css.map": "/static/css/main.138e5e96.css.map",
+    "main.ef86f28a.js.map": "/static/js/main.ef86f28a.js.map",
+    "453.72b27749.chunk.js.map": "/static/js/453.72b27749.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4c4df1c.css",
-    "static/js/main.fa68b6cb.js"
+    "static/css/main.138e5e96.css",
+    "static/js/main.ef86f28a.js"
   ]
 }
