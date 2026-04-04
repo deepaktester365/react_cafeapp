@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import Body from "../components/Body";
-import GiftList from "../components/GiftList";
+import GiftContainer from "../components/gifts/GiftContainer";
 
 export default function ExplorePage() {
   const { userid } = useParams();
   return (
     <Body sidebar>
-      <GiftList userid={userid}/>
+      <GiftContainer userid={userid}/>
     </Body>
   );
 }

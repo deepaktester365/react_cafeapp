@@ -7,7 +7,6 @@ export default class CafeAppApiClient {
   }
 
   async request(options) {
-    console.log("Request", options);
     let response = await this.requestInternal(options);
     if (response.status === 401 && options.url !== '/tokens') {
       const refreshResponse = await this.put('/tokens', {
@@ -27,27 +26,26 @@ export default class CafeAppApiClient {
       query = '?' + query;
     }
 
+    const isFormData = options.body instanceof FormData;
+
+    const headers = {
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+
+      'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+      ...options.headers,
+    };
+
+    const body = isFormData
+        ? options.body
+        : (options.body ? JSON.stringify(options.body) : null);
+
     let response;
     try {
-      console.log("Request Internal", this.base_url + options.url + query, {
-        method: options.method,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
-          ...options.headers,
-        },
-        credentials: options.url === '/tokens' ? 'include' : 'omit',
-        body: options.body ? JSON.stringify(options.body) : null,
-      });
       response = await fetch(this.base_url + options.url + query, {
         method: options.method,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
-          ...options.headers,
-        },
+        headers: headers,
         credentials: options.url === '/tokens' ? 'include' : 'omit',
-        body: options.body ? JSON.stringify(options.body) : null,
+        body: body,
       });
     }
     catch (error) {

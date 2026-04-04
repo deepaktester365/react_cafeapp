@@ -1,10 +1,10 @@
 import Body from "../components/Body";
-import ShoppingList from "../components/ShoppingList";
+import ShoppingContainer from "../components/shopping/ShoppingContainer";
 
 export default function ShoppingListPage() {
   return (
     <Body sidebar>
-      <ShoppingList write={true}/>
+      <ShoppingContainer write={true}/>
     </Body>
   );
 }

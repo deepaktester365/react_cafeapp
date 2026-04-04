@@ -1,6 +1,6 @@
 {
-  "short_name": "FamilyApp",
-  "name": "React CafeApp",
+  "short_name": "NookNotes",
+  "name": "NookNotesApp",
   "icons": [
     {
       "src": "favicon.ico",

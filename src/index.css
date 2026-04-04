@@ -1,108 +1,300 @@
-.App {
-  padding: 0;
+/* =========================================
+   1. COLOR SYSTEM (RGB Tokens)
+   ========================================= */
+
+:root {
+  color-scheme: light;
+  /* LIGHT MODE RGB TOKENS */
+  --nook-primary-rgb: 93, 170, 214;   /* #5DAAD6 Sky Blue */
+  --nook-success-rgb: 125, 190, 136;  /* #7DBE88 Sage Green */
+  --nook-warning-rgb: 245, 198, 86;   /* #F5C656 Warm Gold */
+  --nook-danger-rgb: 229, 115, 115;   /* #E57373 Soft Coral */
+  --nook-text-rgb: 74, 85, 104;       /* #4A5568 Slate Gray */
+  --nook-bg-rgb: 248, 249, 250;       /* #F8F9FA Off-white */
+  --nook-surface-rgb: 255, 255, 255;  /* #FFFFFF White */
+
+  /* BASE SURFACE COLORS */
+  --nook-bg: rgb(var(--nook-bg-rgb));
+  --nook-surface: rgb(var(--nook-surface-rgb));
+  --nook-surface-raised: #FFFFFF;
+  --nook-text: rgb(var(--nook-text-rgb));
+
+  /* BOOTSTRAP MAPPINGS */
+  --bs-primary: rgb(var(--nook-primary-rgb));
+  --bs-body-color: var(--nook-text);
+  --bs-body-bg: var(--nook-bg);
+  --bs-border-color: rgba(var(--nook-text-rgb), 0.15);
+
+  /* SHAPE */
+  --bs-border-radius: 0.5rem;
+  --bs-border-radius-pill: 50rem;
 }
 
-.Header {
-  border-bottom:1px solid #ddd;
+[data-theme='dark'] {
+  /* DARK MODE RGB TOKENS */
+  --nook-bg-rgb: 18, 18, 18;             /* #121212 Background */
+  --nook-surface-rgb: 30, 30, 30;        /* #1E1E1E Base Surface */
+  --nook-surface-raised-rgb: 45, 55, 72;    /* #2D3748 Raised Surface */
+  --nook-text-rgb: 226, 232, 240;         /* #E2E8F0 Main Text */
+
+  /* DYNAMIC VARIABLES */
+  --nook-surface: rgb(var(--nook-surface-rgb));
+  --nook-surface-raised: rgb(var(--nook-surface-raised-rgb));
+  --nook-text: rgb(var(--nook-text-rgb));
+
+  /* BOOTSTRAP OVERRIDES */
+  --bs-body-color: var(--nook-text);
+  --bs-body-bg: var(--nook-bg);
+  --bs-border-color: rgba(255, 255, 255, 0.1);
+  --bs-tertiary-bg: rgba(255, 255, 255, 0.05);
+  --bs-card-bg: var(--nook-surface);
+  --bs-modal-bg: var(--nook-surface-raised);
 }
 
-.Sidebar {
-  width: 120px;
-  margin: 5px;
-  position: sticky;
-  top: 62px;
-  align-self: flex-start;
-  align-items: start;
+/* =========================================
+   2. VERSATILE UTILITIES
+   ========================================= */
+
+/* Elevation & Surface Classes */
+.bg-sidebar { background-color: var(--nook-surface); border-right: 1px solid var(--bs-border-color); }
+.bg-surface { background-color: var(--nook-surface) !important; }
+.bg-surface-raised { background-color: var(--nook-surface-raised) !important; }
+
+/* Dynamic Opacity Scale (Glassmorphism) */
+.bg-surface-75 { background-color: rgba(var(--nook-surface-rgb), 0.75) !important; }
+.bg-surface-50 { background-color: rgba(var(--nook-surface-rgb), 0.50) !important; }
+.bg-surface-25 { background-color: rgba(var(--nook-surface-rgb), 0.25) !important; }
+
+/* Semantic Text Utilities */
+.text-body     { color: var(--nook-text) !important; }
+.text-body-75  { color: rgba(var(--nook-text-rgb), 0.75) !important; }
+.text-body-50  { color: rgba(var(--nook-text-rgb), 0.5) !important; }
+.text-body-25  { color: rgba(var(--nook-text-rgb), 0.25) !important; }
+
+/* Interactive State Utilities */
+.bg-primary-subtle { background-color: rgba(var(--nook-primary-rgb), 0.15) !important; color: var(--nook-primary) !important; }
+.bg-primary-25     { background-color: rgba(var(--nook-primary-rgb), 0.25) !important; }
+.hover-bg-light:hover { background-color: rgba(var(--nook-text-rgb), 0.08) !important; }
+.transition-all    { transition: all 0.2s ease-in-out !important; }
+
+/* =========================================
+   3. GLOBAL POLISH
+   ========================================= */
+
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
 }
 
-.Sidebar .nav-item {
-  width: 100%;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--bs-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.Sidebar .nav-item .active, .dropdown-item.active{
-  background-color: #def;
+/* =========================================
+   4. COMPONENT SYNC
+   ========================================= */
+
+/* Cards & Modals */
+.card {
+  background-color: var(--nook-surface);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+[data-theme='dark'] .card { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); }
+
+/* Table Headers */
+.table thead th {
+  background-color: transparent !important;
+  color: var(--text-body-50);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--bs-border-color);
 }
 
-.Sidebar a {
-  color: #444;
+/* Inputs & Forms */
+.form-control, .form-select {
+  background-color: rgba(var(--nook-surface-rgb), 0.5);
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+}
+[data-theme='dark'] .form-control:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--bs-primary);
+  color: #fff;
 }
 
-.Sidebar a:hover {
-  background-color: #eee;
+/* Fixed Pill Input Group */
+.input-group.rounded-pill {
+  border: 1px solid var(--bs-border-color);
+  background-color: rgba(var(--nook-text-rgb), 0.05);
+  padding: 3px;
+}
+.input-group.rounded-pill .form-control {
+  background-color: transparent !important;
+  border: none !important;
+  padding-left: 1.5rem;
+  box-shadow: none !important;
 }
 
-.Sidebar a:visited {
-  color: #444;
+/* Buttons */
+.btn-primary {
+  --bs-btn-bg: rgb(var(--nook-primary-rgb));
+  --bs-btn-border-color: rgb(var(--nook-primary-rgb));
+  font-weight: 600;
 }
 
-.Sidebar a, .dropdown-item, .dropdown-item.active {
-  color: #444;
+/* Dark Mode Close Button */
+[data-theme='dark'] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-.Content {
-  margin-top: 10px;
+[data-theme='dark'] .form-control[type='number'] {
+  color-scheme: dark;
 }
 
-.Gift {
-  align-items: start;
-  padding-top: 5px;
-  border-bottom: 1px solid #eee;
+/* ✅ ADD THIS TO index.css */
+
+/* Only hide spinners on screens smaller than 768px (Mobile) */
+@media (max-width: 768px) {
+  /* Hide for Chrome, Safari, Edge */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide for Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+/* =========================================
+   4. COMPONENT SYNC: Custom Nook Switch
+   ========================================= */
+
+/* The base track when 'OFF' */
+.form-check-input {
+  background-color: rgba(var(--nook-text-rgb), 0.15);
+  border-color: rgba(var(--nook-text-rgb), 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-.Gift:hover {
-  background-color: #f8f8f8;
+/* The base track when 'ON' */
+.form-check-input:checked {
+  background-color: rgb(var(--nook-primary-rgb)) !important;
+  border-color: rgb(var(--nook-primary-rgb)) !important;
 }
 
-.Gift a {
-  color: #14c;
-  text-decoration: none;
+/* The Focus Ring (glow) */
+.form-check-input:focus {
+  border-color: rgb(var(--nook-primary-rgb));
+  box-shadow: 0 0 0 0.25rem rgba(var(--nook-primary-rgb), 0.25);
 }
 
-.Gift a:visited {
-  color: #14c;
+/* Dark Mode Specific Adjustments */
+[data-theme='dark'] .form-check-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255, 255, 255, 0.6)'/%3e%3c/svg%3e");
 }
 
-.Shopping {
-  align-items: start;
-  padding-top: 5px;
-  border-bottom: 1px solid #eee;
-}
-
-.Shopping:hover {
-  background-color: #f8f8f8;
-}
-
-.Shopping a {
-  color: #14c;
-  text-decoration: none;
-}
-
-.Shopping_org a {
-  color: #0b780e;
-  text-decoration: none;
-}
-
-.Shopping a:visited {
-  color: #14c;
-}
-
-
-.More {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: right;
-}
-
-.InputField {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.ShoppingWrite{
-
+/* Fixes the "Thumb" color when checked in Dark Mode */
+[data-theme='dark'] .form-check-input:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
 }
 
 
-.ShoppingWrite form{
+/* =========================================
+   4. COMPONENT SYNC: Custom Tabs
+   ========================================= */
 
+.custom-tabs.nav-underline .nav-link {
+  color: var(--nook-text) !important; /* Adaptive color for inactive tabs */
+  opacity: 0.6;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 1rem;
+}
+
+.custom-tabs.nav-underline .nav-link:hover {
+  opacity: 1;
+  background-color: rgba(var(--nook-text-rgb), 0.05); /* Subtle hover */
+}
+
+.custom-tabs.nav-underline .nav-link.active {
+  color: rgb(var(--nook-primary-rgb)) !important; /* Sky Blue for active tab */
+  opacity: 1;
+  font-weight: 700;
+  border-bottom-color: rgb(var(--nook-primary-rgb)) !important;
+  background-color: transparent !important;
+}
+
+/* Ensure the shared container background is correct in Dark Mode */
+.custom-tabs {
+  background-color: var(--nook-surface);
+  border-bottom: 1px solid var(--bs-border-color) !important;
+}
+
+[data-theme='dark'] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Ensure placeholder uses the theme text color with 50% opacity */
+.form-control::placeholder {
+  color: rgba(var(--nook-text-rgb), 0.5) !important;
+  opacity: 1; /* Required to override Firefox's default opacity */
+}
+
+/* Optional: Ensure it looks correct when disabled too */
+.form-control:disabled::placeholder {
+  color: rgba(var(--nook-text-rgb), 0.3) !important;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE HOVER ACTIONS
+   ========================================= */
+
+/* DESKTOP: Auto-hide edit actions to keep display clean */
+@media (min-width: 769px) {
+    .hover-row .hover-actions {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .hover-row:hover .hover-actions {
+        opacity: 1;
+    }
+}
+
+/* MOBILE: Always show actions because touchscreens cannot "hover" */
+@media (max-width: 768px) {
+    .hover-row .hover-actions {
+        opacity: 1;
+        padding-top: 0.5rem; /* Give touch targets a little breathing room */
+    }
+
+    /* Allow flex rows to wrap on tiny screens so text doesn't squish */
+    .hover-row {
+        flex-wrap: wrap;
+    }
+
+    /* Push the actions to the right side when they wrap on mobile */
+    .hover-row .hover-actions {
+        margin-left: auto;
+    }
+}
+
+/* Timer Blink Animation */
+@keyframes blink {
+    50% { opacity: 0.2; color: var(--bs-danger); }
+}
+.timer-blink {
+    animation: blink 1s ease-in-out infinite;
 }

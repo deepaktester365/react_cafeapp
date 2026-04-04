@@ -1,10 +1,10 @@
 import Body from "../components/Body";
-import GiftList from "../components/GiftList";
+import GiftContainer from "../components/gifts/GiftContainer";
 
-export default function FeedPage() {
+export default function MyGiftPage() {
   return (
     <Body sidebar>
-      <GiftList userid={null} content='mine'/>
+      <GiftContainer username={null} content='mine' write={true} />
     </Body>
   );
 }
